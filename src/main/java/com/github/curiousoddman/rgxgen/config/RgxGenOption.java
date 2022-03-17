@@ -35,7 +35,22 @@ public enum RgxGenOption {
      *
      * @defaultValue false
      */
-    CASE_INSENSITIVE("matching.case.insensitive", "false");
+    CASE_INSENSITIVE("matching.case.insensitive", "false"),
+
+    /**
+     * The minimum length of string to generate which may not be possible depending on the specific pattern.
+     *
+     * @defaultValue 0
+     */
+    MIN_LENGTH("generation.length.minimum", "0"),
+
+
+    /**
+     * The maximum length of string to generate which may not be possible depending on the specific pattern.
+     *
+     * @defaultValue 500
+     */
+    MAX_LENGTH("generation.length.maximum", "500");
 
     private final String aKey;
     private final String aDefault;
