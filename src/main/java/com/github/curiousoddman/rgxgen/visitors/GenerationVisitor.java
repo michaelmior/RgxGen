@@ -51,22 +51,22 @@ public class GenerationVisitor implements NodeVisitor {
     public void visit(Choice node) {
         Node[] nodes = node.getNodes();
         int idx = aRandom.nextInt(nodes.length);
-        int minLength = RgxGenOption.MIN_LENGTH.getIntFromProperties(aProperties);
-        int tries = 0;
-        while (nodes[idx] instanceof FinalSymbol && (((FinalSymbol) nodes[idx]).getValue().length() + aStringBuilder.length()) < minLength && tries < nodes.length) {
-            idx = aRandom.nextInt(nodes.length);
-            tries++;
-        }
-        if (aStringBuilder.length() >= RgxGenOption.MAX_LENGTH.getIntFromProperties(aProperties)) {
-            int minFinalLength = Integer.MAX_VALUE;
-            for (int i = 0; i < nodes.length; i++) {
-                if (nodes[i] instanceof FinalSymbol && ((FinalSymbol) nodes[i]).getValue().length() < minFinalLength) {
-                    minFinalLength = ((FinalSymbol) nodes[i]).getValue().length();
-                    idx = i;
-                    break;
-                }
-            }
-        }
+        // int minLength = RgxGenOption.MIN_LENGTH.getIntFromProperties(aProperties);
+        // int tries = 0;
+        // while (nodes[idx] instanceof FinalSymbol && (((FinalSymbol) nodes[idx]).getValue().length() + aStringBuilder.length()) < minLength && tries < nodes.length) {
+        //     idx = aRandom.nextInt(nodes.length);
+        //     tries++;
+        // }
+        // if (aStringBuilder.length() >= RgxGenOption.MAX_LENGTH.getIntFromProperties(aProperties)) {
+        //     int minFinalLength = Integer.MAX_VALUE;
+        //     for (int i = 0; i < nodes.length; i++) {
+        //         if (nodes[i] instanceof FinalSymbol && ((FinalSymbol) nodes[i]).getValue().length() < minFinalLength) {
+        //             minFinalLength = ((FinalSymbol) nodes[i]).getValue().length();
+        //             idx = i;
+        //             break;
+        //         }
+        //     }
+        // }
         nodes[idx].visit(this);
     }
 
